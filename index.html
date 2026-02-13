@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Calculator</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
         let operasi = "+";
 
@@ -17,26 +16,20 @@
             if (isNaN(bil2)) bil2 = 0;
 
             let hasil = 0;
-
             if (operasi == "+") hasil = bil1 + bil2;
             else if (operasi == "-") hasil = bil1 - bil2;
             else if (operasi == "*") hasil = bil1 * bil2;
             else if (operasi == "/") hasil = bil2 != 0 ? bil1 / bil2 : "Tidak bisa dibagi 0";
-
             document.kalkulator.hasil.value = hasil;
         }
-
         function setOperasi(op) {
             operasi = op;
             hitung();
         }
     </script>
 </head>
-
-<body class="m-0 p-0 font-sans bg-gradient-to-br from-blue-800 to-blue-500 min-h-screen flex items-center justify-center">
-
+<body class="m-0 p-0 font-sans bg-gradient-to-br from-gray-800 to-gray-500 min-h-screen flex items-center justify-center">
     <form name="kalkulator" class="bg-white p-8 rounded-xl shadow-xl w-80 text-center">
-
         <h2 class="mb-6 text-2xl font-bold text-gray-700">Mini Calculator</h2>
 
         <div class="mb-4 text-left">
@@ -45,8 +38,7 @@
                 type="text" 
                 name="bilangan1" 
                 oninput="hitung()" 
-                class="w-full p-2 border border-gray-300 rounded-md"
-            >
+                class="w-full p-2 border border-gray-300 rounded-md">
         </div>
 
         <div class="mb-4 text-left">
@@ -55,15 +47,14 @@
                 type="text" 
                 name="bilangan2" 
                 oninput="hitung()" 
-                class="w-full p-2 border border-gray-300 rounded-md"
-            >
+                class="w-full p-2 border border-gray-300 rounded-md">
         </div>
 
         <div class="mb-4">
-            <button type="button" onclick="setOperasi('+')" class="w-12 h-10 m-1 bg-blue-700 text-white text-lg rounded-md hover:bg-blue-900">+</button>
-            <button type="button" onclick="setOperasi('-')" class="w-12 h-10 m-1 bg-blue-700 text-white text-lg rounded-md hover:bg-blue-900">-</button>
-            <button type="button" onclick="setOperasi('*')" class="w-12 h-10 m-1 bg-blue-700 text-white text-lg rounded-md hover:bg-blue-900">x</button>
-            <button type="button" onclick="setOperasi('/')" class="w-12 h-10 m-1 bg-blue-700 text-white text-lg rounded-md hover:bg-blue-900">/</button>
+            <button type="button" onclick="setOperasi('+')" class="w-12 h-10 m-1 bg-gray-700 text-white text-lg rounded-md hover:bg-gray-900">+</button>
+            <button type="button" onclick="setOperasi('-')" class="w-12 h-10 m-1 bg-gray-700 text-white text-lg rounded-md hover:bg-gray-900">-</button>
+            <button type="button" onclick="setOperasi('*')" class="w-12 h-10 m-1 bg-gray-700 text-white text-lg rounded-md hover:bg-gray-900">x</button>
+            <button type="button" onclick="setOperasi('/')" class="w-12 h-10 m-1 bg-gray-700 text-white text-lg rounded-md hover:bg-gray-900">/</button>
         </div>
 
         <div class="text-left">
@@ -72,11 +63,8 @@
                 type="text" 
                 name="hasil" 
                 readonly 
-                class="w-full p-2 bg-gray-100 rounded-md font-bold"
-            >
+                class="w-full p-2 bg-gray-100 rounded-md font-bold">
         </div>
-
     </form>
-
 </body>
-</html>
+                </html>
