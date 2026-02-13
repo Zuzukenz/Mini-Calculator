@@ -1,58 +1,82 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-<title>Mini Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<script type="text/javascript">
-let operasi = "+"; 
-function hitung() {
-    let bil1 = parseFloat(document.kalkulator.bilangan1.value);
-    let bil2 = parseFloat(document.kalkulator.bilangan2.value);
+    <script>
+        let operasi = "+";
 
-    if (isNaN(bil1)) bil1 = 0;
-    if (isNaN(bil2)) bil2 = 0;
+        function hitung() {
+            let bil1 = parseFloat(document.kalkulator.bilangan1.value);
+            let bil2 = parseFloat(document.kalkulator.bilangan2.value);
 
-    let hasil = 0;
+            if (isNaN(bil1)) bil1 = 0;
+            if (isNaN(bil2)) bil2 = 0;
 
-    if (operasi == "+") {
-        hasil = bil1 + bil2;
-    } 
-    else if (operasi == "-") {
-        hasil = bil1 - bil2;
-    } 
-    else if (operasi == "*") {
-        hasil = bil1 * bil2;
-    } 
-    else if (operasi == "/") {
-        hasil = bil2 != 0 ? bil1 / bil2 : "Tidak bisa dibagi 0";
-    }
+            let hasil = 0;
 
-    document.kalkulator.hasil.value = hasil;
-}
-function setOperasi(op) {
-    operasi = op;
-    hitung(); 
-}
-</script>
+            if (operasi == "+") hasil = bil1 + bil2;
+            else if (operasi == "-") hasil = bil1 - bil2;
+            else if (operasi == "*") hasil = bil1 * bil2;
+            else if (operasi == "/") hasil = bil2 != 0 ? bil1 / bil2 : "Tidak bisa dibagi 0";
+
+            document.kalkulator.hasil.value = hasil;
+        }
+
+        function setOperasi(op) {
+            operasi = op;
+            hitung();
+        }
+    </script>
 </head>
-<body>
-<form name="kalkulator">
-  
-    <h2>Mini Calculator</h2>
-    Bilangan 1 :
-    <input type="text" name="bilangan1" oninput="hitung()"><br><br>
-    Bilangan 2 :
-    <input type="text" name="bilangan2" oninput="hitung()"><br><br>
-    <input type="button" value="+" onclick="setOperasi('+')">
-    <input type="button" value="-" onclick="setOperasi('-')">
-    <input type="button" value="x" onclick="setOperasi('*')">
-    <input type="button" value="/" onclick="setOperasi('/')">
-    <br><br>
-    Hasil :
-    <input type="text" name="hasil" readonly>
-</form>
+
+<body class="m-0 p-0 font-sans bg-gradient-to-br from-blue-800 to-blue-500 min-h-screen flex items-center justify-center">
+
+    <form name="kalkulator" class="bg-white p-8 rounded-xl shadow-xl w-80 text-center">
+
+        <h2 class="mb-6 text-2xl font-bold text-gray-700">Mini Calculator</h2>
+
+        <div class="mb-4 text-left">
+            <label class="block mb-1 text-gray-600">Bilangan 1</label>
+            <input 
+                type="text" 
+                name="bilangan1" 
+                oninput="hitung()" 
+                class="w-full p-2 border border-gray-300 rounded-md"
+            >
+        </div>
+
+        <div class="mb-4 text-left">
+            <label class="block mb-1 text-gray-600">Bilangan 2</label>
+            <input 
+                type="text" 
+                name="bilangan2" 
+                oninput="hitung()" 
+                class="w-full p-2 border border-gray-300 rounded-md"
+            >
+        </div>
+
+        <div class="mb-4">
+            <button type="button" onclick="setOperasi('+')" class="w-12 h-10 m-1 bg-blue-700 text-white text-lg rounded-md hover:bg-blue-900">+</button>
+            <button type="button" onclick="setOperasi('-')" class="w-12 h-10 m-1 bg-blue-700 text-white text-lg rounded-md hover:bg-blue-900">-</button>
+            <button type="button" onclick="setOperasi('*')" class="w-12 h-10 m-1 bg-blue-700 text-white text-lg rounded-md hover:bg-blue-900">x</button>
+            <button type="button" onclick="setOperasi('/')" class="w-12 h-10 m-1 bg-blue-700 text-white text-lg rounded-md hover:bg-blue-900">/</button>
+        </div>
+
+        <div class="text-left">
+            <label class="block mb-1 text-gray-600">Hasil</label>
+            <input 
+                type="text" 
+                name="hasil" 
+                readonly 
+                class="w-full p-2 bg-gray-100 rounded-md font-bold"
+            >
+        </div>
+
+    </form>
+
 </body>
 </html>
