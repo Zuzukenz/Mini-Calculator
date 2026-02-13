@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+<title>Mini Calculator</title>
+
+<script type="text/javascript">
+let operasi = "+"; 
+function hitung() {
+    let bil1 = parseFloat(document.kalkulator.bilangan1.value);
+    let bil2 = parseFloat(document.kalkulator.bilangan2.value);
+
+    if (isNaN(bil1)) bil1 = 0;
+    if (isNaN(bil2)) bil2 = 0;
+
+    let hasil = 0;
+
+    if (operasi == "+") {
+        hasil = bil1 + bil2;
+    } 
+    else if (operasi == "-") {
+        hasil = bil1 - bil2;
+    } 
+    else if (operasi == "*") {
+        hasil = bil1 * bil2;
+    } 
+    else if (operasi == "/") {
+        hasil = bil2 != 0 ? bil1 / bil2 : "Tidak bisa dibagi 0";
+    }
+
+    document.kalkulator.hasil.value = hasil;
+}
+function setOperasi(op) {
+    operasi = op;
+    hitung(); 
+}
+</script>
+</head>
+<body>
+<form name="kalkulator">
+  
+    <h2>Mini Calculator</h2>
+    Bilangan 1 :
+    <input type="text" name="bilangan1" oninput="hitung()"><br><br>
+    Bilangan 2 :
+    <input type="text" name="bilangan2" oninput="hitung()"><br><br>
+    <input type="button" value="+" onclick="setOperasi('+')">
+    <input type="button" value="-" onclick="setOperasi('-')">
+    <input type="button" value="x" onclick="setOperasi('*')">
+    <input type="button" value="/" onclick="setOperasi('/')">
+    <br><br>
+    Hasil :
+    <input type="text" name="hasil" readonly>
+</form>
+</body>
+</html>
